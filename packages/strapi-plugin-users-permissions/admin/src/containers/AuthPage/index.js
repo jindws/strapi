@@ -23,7 +23,7 @@ import auth from 'utils/auth';
 import pluginId from '../../pluginId';
 
 // Logo
-import LogoStrapi from '../../assets/images/logo_strapi.png';
+import LogoStrapi from '../../assets/images/logo_r2.svg';
 
 import {
   hideLoginErrorsInput,
@@ -46,13 +46,13 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   }
 
   componentDidUpdate(prevProps) {
-    const { 
+    const {
       hideLoginErrorsInput,
-      match: { 
+      match: {
         params : {
           authType,
         },
-      }, 
+      },
       submitSuccess,
     } = this.props;
 
@@ -64,7 +64,7 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
     if (submitSuccess) {
       switch (authType) {
         case 'login':
-        case 'reset-password': 
+        case 'reset-password':
           // Check if we have token to handle redirection to login or admin.
           // Done to prevent redirection to admin after reset password if user should
           // not have access.
@@ -99,8 +99,8 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
           id,
         },
       },
-      setForm, 
-    } = this.props; 
+      setForm,
+    } = this.props;
     const params = search ? replace(search, '?code=', '') : id;
     
     setForm(authType, params);
@@ -190,7 +190,7 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
   }
 
   renderInputs = () => {
-    const { 
+    const {
       didCheckErrors,
       formErrors,
       match: {
@@ -207,9 +207,9 @@ export class AuthPage extends React.Component { // eslint-disable-line react/pre
     const inputs = get(form, ['form', authType]);
     const isForgotEmailSent = this.isAuthType('forgot-password') && submitSuccess;
     return map(inputs, (input, key) => {
-      const label = 
+      const label =
         isForgotEmailSent
-          ? { id: 'users-permissions.Auth.form.forgot-password.email.label.success' } 
+          ? { id: 'users-permissions.Auth.form.forgot-password.email.label.success' }
           : get(input, 'label');
           
       return (
